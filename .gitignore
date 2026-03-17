@@ -4,4 +4,5 @@ yarn-error.log
 yarn-debug.log
 package-lock.json
 
+uploads/
 .env
