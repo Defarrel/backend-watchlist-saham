@@ -1,6 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import db from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
 
@@ -11,6 +13,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.json({ message: "Main Backend is running..." });
 });
+app.use('/uploads', express.static('uploads')); 
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
